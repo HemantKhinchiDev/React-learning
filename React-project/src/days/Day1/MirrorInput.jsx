@@ -7,7 +7,7 @@ export const MirrorInput =()=>{
 
         <div>
         MirrorInput Example: 
-            <input type="text"/> 
+            <input type="text" value={text} onChange={(e)=>{setText(e.target.value)}}/> 
             Mirror Output:{text}
         </div>
         </>
