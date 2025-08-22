@@ -1,5 +1,5 @@
 export const FruitList=()=>{
-    const fruits = ["🍎Apple", "Banana", "Mango"];
+    const fruits = ["🍎 Apple", "🍌 Banana", "🥭 Mango"];
     return (
         <>
             <ul>{fruits.map((fruit,index)=>{
