@@ -3,6 +3,7 @@ import { CounterButton } from "./CounterButton";
 import { MirrorInput } from "./MirrorInput";
 import { FruitList } from "./FruitList";
 export const Day1 = (props) => {
+    const fruits = ["🍎 Apple", "🍌 Banana", "🥭 Mango"];
     return (
         <>
             <div className="">
@@ -10,7 +11,7 @@ export const Day1 = (props) => {
             </div>
             <CounterButton/>
             <MirrorInput/>
-            <FruitList/>
+            <FruitList fruits={fruits}/>
         </>
     );
 }
