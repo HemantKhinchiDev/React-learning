@@ -13,6 +13,12 @@ export const Todo = () => {
         placeholder="Enter task..."
         value={task}
         onChange={(e) => setTask(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" && task.trim() !== "") {
+            setTaskList([...taskList, task]);
+            setTask("");
+          }
+        }}
       />
       <button
         type="button"
@@ -25,10 +31,18 @@ export const Todo = () => {
       >
         Add Task
       </button>
-
       <ul>
         {taskList.map((item, index) => (
-          <li key={index}>{item} <button onClick={()=>setTaskList(taskList.filter((_, i) => i !== index))}>❌</button></li>
+          <li key={index}>
+            {item}{" "}
+            <button
+              onClick={() =>
+                setTaskList(taskList.filter((_, i) => i !== index))
+              }
+            >
+              ❌
+            </button>
+          </li>
         ))}
       </ul>
     </>
