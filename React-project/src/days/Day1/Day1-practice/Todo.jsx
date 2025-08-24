@@ -2,16 +2,25 @@ import { useState } from "react";
 import { TodoItem } from "./TodoItem";
 export const Todo = () => {
   const [task, setTask] = useState("");
-  const [taskList, setTaskList] = useState([]);
+  const [taskList, setTaskList] = useState([
+    { text: "Task ka content", completed: false, edit: "" },
+  ]);
 
   const deleteTask = (index) => {
+    setTaskList(taskList.filter((_, i) => i !== index));
+  };
+  const updateTaskText = (index, newText) => {
     setTaskList(
-      taskList.filter((item, i) => {
-        return i !== index;
-      })
+      taskList.map((t, i) => (i === index ? { ...t, text: newText } : t))
     );
   };
-
+  const toggleComplete = (index) => {
+    setTaskList(
+      taskList.map((t, i) =>
+        i === index ? { ...t, completed: !t.completed } : t
+      )
+    );
+  };
   return (
     <>
       Create Your Todo
@@ -23,7 +32,10 @@ export const Todo = () => {
         onChange={(e) => setTask(e.target.value)}
         onKeyDown={(e) => {
           if (e.key === "Enter" && task.trim() !== "") {
-            setTaskList([...taskList, task]);
+            setTaskList([
+              ...taskList,
+              { text: task, completed: false, edit: "" },
+            ]);
             setTask("");
           }
         }}
@@ -32,7 +44,10 @@ export const Todo = () => {
         type="button"
         onClick={() => {
           if (task.trim() !== "") {
-            setTaskList([...taskList, task]);
+            setTaskList([
+              ...taskList,
+              { text: task, completed: false, edit: "" },
+            ]);
             setTask("");
           }
         }}
@@ -46,6 +61,8 @@ export const Todo = () => {
             item={item}
             index={index}
             deleteTask={deleteTask}
+            toggleComplete={toggleComplete}
+            updateTaskText={updateTaskText}
           />
         ))}
       </ul>
