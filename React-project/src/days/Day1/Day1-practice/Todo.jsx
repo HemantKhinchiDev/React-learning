@@ -1,8 +1,16 @@
 import { useState } from "react";
-
+import { TodoItem } from "./TodoItem";
 export const Todo = () => {
   const [task, setTask] = useState("");
   const [taskList, setTaskList] = useState([]);
+
+  const deleteTask = (index) => {
+    setTaskList(
+      taskList.filter((item, i) => {
+        return i !== index;
+      })
+    );
+  };
 
   return (
     <>
@@ -33,16 +41,12 @@ export const Todo = () => {
       </button>
       <ul>
         {taskList.map((item, index) => (
-          <li key={index}>
-            {item}{" "}
-            <button
-              onClick={() =>
-                setTaskList(taskList.filter((_, i) => i !== index))
-              }
-            >
-              ❌
-            </button>
-          </li>
+          <TodoItem
+            key={index}
+            item={item}
+            index={index}
+            deleteTask={deleteTask}
+          />
         ))}
       </ul>
     </>
