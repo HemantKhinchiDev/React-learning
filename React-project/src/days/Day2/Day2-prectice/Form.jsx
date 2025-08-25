@@ -13,7 +13,34 @@ export const Form = () => {
   }; // event handlers yaha aayenge
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Final Form Data:", formData);
+    if (!formData.email || !formData.password) {
+      alert("Please fill all fields");
+      return;
+    }
+    else if(formData.name.trim() === ""){
+      alert("Name must be filled with characters");
+      return;
+    }
+    else if(!formData.email.includes("@") || !formData.email.includes(".")){
+      alert("Email must contain @ and .");
+      return;
+    }
+    else if (
+  formData.password.length < 6 ||
+  !/\d/.test(formData.password) ||
+  !/[a-z]/.test(formData.password) ||
+  !/[A-Z]/.test(formData.password) ||
+  !/[!@#$%^&*(),.?":{}|<>]/.test(formData.password)
+) {
+  alert(
+    "Password must be at least 6 characters, contain a number, a lowercase, an uppercase, and a special character"
+  );
+  return;
+}
+
+    else{
+      console.log("Final Form Data:", formData);
+    }
   };
   return (
     <div>
