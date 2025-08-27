@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const ProductCatalog = () => {
+export const ProductCatalog = (props) => {
   const [products, setProducts] = useState([
     { id: 1, name: "Laptop", price: 55000 },
     { id: 2, name: "Mobile", price: 20000 },
@@ -17,6 +17,7 @@ export const ProductCatalog = () => {
   };
   return (
     <>
+      {props.title}
       <ul>
         {products.map((product) => {
           return (

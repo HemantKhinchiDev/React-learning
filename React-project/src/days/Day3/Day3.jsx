@@ -5,7 +5,7 @@ export const Day3 = () => {
     <>
       <h1>Day-3</h1>
       <p>Project Ideas (Lists & Keys)</p>
-      <ProductCatalog />
+      <ProductCatalog title={"Latest Gadgets"} />
     </>
   );
 };
