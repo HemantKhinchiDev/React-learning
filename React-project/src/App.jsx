@@ -1,46 +1,50 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
 import { Day1 } from "./days/Day1/Day1";
 import { Day2 } from "./days/Day2/Day2";
 import { Day3 } from "./days/Day3/Day3";
 import { Day4 } from "./days/Day4/Day4";
-function App() {
-  const [count, setCount] = useState(0);
 
+function App() {
   return (
-    <>
-      <h1>Vite + React Learning</h1>
-      <nav style={{ marginBottom: "20px" }}>
-        <a href="#day1" style={{ marginRight: "10px" }}>
+    <div className="p-6">
+      <h1 className="text-3xl font-bold mb-6">Vite + React Learning</h1>
+
+      <nav className="mb-6 space-x-4">
+        <a href="#day1" className="text-blue-600 hover:underline">
           Day-1
         </a>
-        <a href="#day2" style={{ marginRight: "10px" }}>
+        <a href="#day2" className="text-blue-600 hover:underline">
           Day-2
         </a>
-        <a href="#day3" style={{ marginRight: "10px" }}>
+        <a href="#day3" className="text-blue-600 hover:underline">
           Day-3
         </a>
+        <a href="#day4" className="text-blue-600 hover:underline">
+          Day-4
+        </a>
       </nav>
-      <section id="day1">
-        <h2>Day-1 Learning Component</h2>
+
+      <section id="day1" className="mb-8">
+        <h2 className="text-xl font-semibold mb-2">Day-1 Learning Component</h2>
         <Day1 />
       </section>
-      {/* Day 2 Section */}
-      <section id="day2">
-        <h2>Day-2 Registration Form</h2>
+
+      <section id="day2" className="mb-8">
+        <h2 className="text-xl font-semibold mb-2">Day-2 Registration Form</h2>
         <Day2 />
       </section>
-      <section id="day3">
-        <h2>Day-3 Project Ideas (Lists & Keys)</h2>
+
+      <section id="day3" className="mb-8">
+        <h2 className="text-xl font-semibold mb-2">Day-3 Project Ideas</h2>
         <Day3 />
       </section>
-      <section id="day4">
-        <h2>Day-4 Project Ideas (Lists & Keys)</h2>
+
+      <section id="day4" className="mb-8">
+        <h2 className="text-xl font-semibold mb-2">
+          Day-4 Something Different
+        </h2>
         <Day4 />
       </section>
-    </>
+    </div>
   );
 }
 
