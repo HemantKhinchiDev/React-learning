@@ -5,7 +5,7 @@ import "./App.css";
 import { Day1 } from "./days/Day1/Day1";
 import { Day2 } from "./days/Day2/Day2";
 import { Day3 } from "./days/Day3/Day3";
-
+import { Day4 } from "./days/Day4/Day4";
 function App() {
   const [count, setCount] = useState(0);
 
@@ -35,6 +35,10 @@ function App() {
       <section id="day3">
         <h2>Day-3 Project Ideas (Lists & Keys)</h2>
         <Day3 />
+      </section>
+      <section id="day4">
+        <h2>Day-4 Project Ideas (Lists & Keys)</h2>
+        <Day4 />
       </section>
     </>
   );
