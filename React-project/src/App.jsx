@@ -2,6 +2,7 @@ import { Day1 } from "./days/Day1/Day1";
 import { Day2 } from "./days/Day2/Day2";
 import { Day3 } from "./days/Day3/Day3";
 import { Day4 } from "./days/Day4/Day4";
+import { Day5 } from "./days/Day5/Day5";
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
         </a>
         <a href="#day4" className="text-blue-600 hover:underline">
           Day-4
+        </a>
+        <a href="#day5" className="text-blue-600 hover:underline">
+          Day-5
         </a>
       </nav>
 
@@ -43,6 +47,10 @@ function App() {
           Day-4 Something Different
         </h2>
         <Day4 />
+      </section>
+      <section id="day5" className="mb-8">
+        <h2 className="text-xl font-semibold mb-2">Day-5 UseRef</h2>
+        <Day5 />
       </section>
     </div>
   );
