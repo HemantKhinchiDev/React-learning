@@ -3,10 +3,10 @@ import { Day2 } from "./days/Day2/Day2";
 import { Day3 } from "./days/Day3/Day3";
 import { Day4 } from "./days/Day4/Day4";
 import { Day5 } from "./days/Day5/Day5";
-
+import { Day6 } from "./days/Day6/Day6";
 function App() {
   return (
-    <div className="p-6">
+    <div className="p-0">
       <h1 className="text-3xl font-bold mb-6">Vite + React Learning</h1>
 
       <nav className="mb-6 space-x-4">
@@ -24,6 +24,9 @@ function App() {
         </a>
         <a href="#day5" className="text-blue-600 hover:underline">
           Day-5
+        </a>
+        <a href="#day6" className="text-blue-600 hover:underline">
+          Day-6
         </a>
       </nav>
 
@@ -51,6 +54,10 @@ function App() {
       <section id="day5" className="mb-8">
         <h2 className="text-xl font-semibold mb-2">Day-5 UseRef</h2>
         <Day5 />
+      </section>
+      <section id="day6" className="mb-8">
+        <h2 className="text-xl font-semibold mb-2">Day-6 Weather App</h2>
+        <Day6 />
       </section>
     </div>
   );
