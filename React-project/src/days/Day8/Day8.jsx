@@ -17,55 +17,79 @@ export const Day8 = () => {
     event.preventDefault();
     const newErrors = {};
 
-    // Validation for name field
     if (formData.name.trim() === "") {
       newErrors.name = "Name is required";
     }
 
-    // Validation for message field
     if (formData.message.trim() === "") {
       newErrors.message = "Message is required";
     }
 
     setErrors(newErrors);
 
-    // Agar koi error na ho, toh form submit karo
     if (Object.keys(newErrors).length === 0) {
       console.log("Form submitted successfully!", formData);
-      // Yahaan tum data ko server par bhej sakte ho
     }
   };
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="name">Name:</label>
+    <div className="flex justify-center items-center h-screen bg-gray-100 p-4">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white p-8 rounded-lg shadow-md w-full max-w-md"
+      >
+        <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
+          Feedback Form
+        </h2>
+        <div className="mb-4">
+          <label
+            htmlFor="name"
+            className="block text-gray-700 font-medium mb-2"
+          >
+            Name:
+          </label>
           <input
             type="text"
             id="name"
             name="name"
             value={formData.name}
             onChange={handleChange}
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-          {errors.name && <p style={{ color: "red" }}>{errors.name}</p>}
+          {errors.name && (
+            <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+          )}
         </div>
-        <div>
-          <label htmlFor="message">Message:</label>
+        <div className="mb-4">
+          <label
+            htmlFor="message"
+            className="block text-gray-700 font-medium mb-2"
+          >
+            Message:
+          </label>
           <textarea
             id="message"
             name="message"
             value={formData.message}
             onChange={handleChange}
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 h-32 resize-none"
           ></textarea>
-          {errors.message && <p style={{ color: "red" }}>{errors.message}</p>}
+          {errors.message && (
+            <p className="text-red-500 text-sm mt-1">{errors.message}</p>
+          )}
         </div>
-        <div>
-          <label htmlFor="rating">Rating:</label>
+        <div className="mb-6">
+          <label
+            htmlFor="rating"
+            className="block text-gray-700 font-medium mb-2"
+          >
+            Rating:
+          </label>
           <select
             id="rating"
             name="rating"
             value={formData.rating}
             onChange={handleChange}
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="">Select a rating</option>
             <option value="5">5 - Excellent</option>
@@ -75,7 +99,12 @@ export const Day8 = () => {
             <option value="1">1 - Very Poor</option>
           </select>
         </div>
-        <button type="submit">Submit Feedback</button>
+        <button
+          type="submit"
+          className="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+        >
+          Submit Feedback
+        </button>
       </form>
     </div>
   );
