@@ -12,13 +12,34 @@ export const Day8 = () => {
       [event.target.name]: event.target.value,
     });
   };
+  const [errors, setErrors] = useState({});
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const newErrors = {};
+
+    // Validation for name field
+    if (formData.name.trim() === "") {
+      newErrors.name = "Name is required";
+    }
+
+    // Validation for message field
+    if (formData.message.trim() === "") {
+      newErrors.message = "Message is required";
+    }
+
+    setErrors(newErrors);
+
+    // Agar koi error na ho, toh form submit karo
+    if (Object.keys(newErrors).length === 0) {
+      console.log("Form submitted successfully!", formData);
+      // Yahaan tum data ko server par bhej sakte ho
+    }
+  };
   return (
     <div>
-           {" "}
-      <form>
-               {" "}
+      <form onSubmit={handleSubmit}>
         <div>
-                    <label htmlFor="name">Name:</label>         {" "}
+          <label htmlFor="name">Name:</label>
           <input
             type="text"
             id="name"
@@ -26,40 +47,34 @@ export const Day8 = () => {
             value={formData.name}
             onChange={handleChange}
           />
-                 {" "}
         </div>
-               {" "}
         <div>
-                    <label htmlFor="message">Message:</label>         {" "}
+          <label htmlFor="message">Message:</label>
           <textarea
             id="message"
             name="message"
             value={formData.message}
             onChange={handleChange}
           ></textarea>
-                 {" "}
         </div>
-               {" "}
         <div>
-                    <label htmlFor="rating">Rating:</label>         {" "}
+          <label htmlFor="rating">Rating:</label>
           <select
             id="rating"
             name="rating"
             value={formData.rating}
             onChange={handleChange}
           >
-                        <option value="">Select a rating</option>           {" "}
-            <option value="5">5 - Excellent</option>           {" "}
-            <option value="4">4 - Good</option>           {" "}
-            <option value="3">3 - Fair</option>           {" "}
-            <option value="2">2 - Poor</option>           {" "}
-            <option value="1">1 - Very Poor</option>         {" "}
+            <option value="">Select a rating</option>
+            <option value="5">5 - Excellent</option>
+            <option value="4">4 - Good</option>
+            <option value="3">3 - Fair</option>
+            <option value="2">2 - Poor</option>
+            <option value="1">1 - Very Poor</option>
           </select>
-                 {" "}
         </div>
-                <button type="submit">Submit Feedback</button>     {" "}
+        <button type="submit">Submit Feedback</button>
       </form>
-         {" "}
     </div>
   );
 };
