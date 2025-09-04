@@ -47,6 +47,7 @@ export const Day8 = () => {
             value={formData.name}
             onChange={handleChange}
           />
+          {errors.name && <p style={{ color: "red" }}>{errors.name}</p>}
         </div>
         <div>
           <label htmlFor="message">Message:</label>
@@ -56,6 +57,7 @@ export const Day8 = () => {
             value={formData.message}
             onChange={handleChange}
           ></textarea>
+          {errors.message && <p style={{ color: "red" }}>{errors.message}</p>}
         </div>
         <div>
           <label htmlFor="rating">Rating:</label>
