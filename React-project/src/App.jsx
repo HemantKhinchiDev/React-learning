@@ -6,7 +6,7 @@ import { Day5 } from "./days/Day5/Day5";
 import { Day6 } from "./days/Day6/Day6";
 import { Day7 } from "./days/Day7/Day7";
 import { Day8 } from "./days/Day8/Day8";
-
+import { Day9 } from "./days/Day9/Day9";
 function App() {
   return (
     <div className="min-h-screen bg-gray-50 text-gray-800 p-8 md:p-12">
@@ -147,6 +147,13 @@ function App() {
         >
           <h2 className="text-2xl font-bold mb-4 text-gray-700">My Form App</h2>
           <Day8 />
+        </section>
+        <section
+          id="day9"
+          className="p-6 bg-white rounded-lg shadow-md border-t-4 border-blue-500"
+        >
+          <h2 className="text-2xl font-bold mb-4 text-gray-700">My Form App</h2>
+          <Day9 />
         </section>
       </main>
     </div>
