@@ -7,7 +7,10 @@ import { Day6 } from "./days/Day6/Day6";
 import { Day7 } from "./days/Day7/Day7";
 import { Day8 } from "./days/Day8/Day8";
 import { Day9 } from "./days/Day9/Day9";
+import { Day10 } from "./days/Day10/Day10";
+import { UserContext } from "./contexts/MyContext";
 function App() {
+  const user = { name: "Rahul", isLoggedIn: true };
   return (
     <div className="min-h-screen bg-gray-50 text-gray-800 p-8 md:p-12">
       <header className="mb-12 text-center">
@@ -67,6 +70,18 @@ function App() {
           className="text-sm md:text-base font-medium text-blue-600 hover:text-blue-800 transition-colors"
         >
           Day-8
+        </a>
+        <a
+          href="#day9"
+          className="text-sm md:text-base font-medium text-blue-600 hover:text-blue-800 transition-colors"
+        >
+          Day-9
+        </a>
+        <a
+          href="#day10"
+          className="text-sm md:text-base font-medium text-blue-600 hover:text-blue-800 transition-colors"
+        >
+          Day-10
         </a>
       </nav>
 
@@ -155,6 +170,17 @@ function App() {
           <h2 className="text-2xl font-bold mb-4 text-gray-700">My Form App</h2>
           <Day9 />
         </section>
+        <UserContext.Provider value={user}>
+          <section
+            id="day10"
+            className="p-6 bg-white rounded-lg shadow-md border-t-4 border-blue-500"
+          >
+            <h2 className="text-2xl font-bold mb-4 text-gray-700">
+              Context API
+            </h2>
+            <Day10 />
+          </section>
+        </UserContext.Provider>
       </main>
     </div>
   );
